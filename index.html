@@ -1,286 +1,118 @@
-< !DOCTYPE html>
-
-<html lang= »en »>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-  <meta charset= »UTF-8 » />
-
-  <meta name= »viewport » content= »width=device-width, initial-scale=1.0 »/>
-
-  <title>The Resonance Within : From Simple Swings to Chaotic Dances</title>
-
-
-
-  < !—MathJax for equations 
-
-  <script src= »https://polyfill.io/v3/polyfill.min.js ?features=es6 »></script>
-
-  <script type= »text/javascript » async id= »MathJax-script »
-
-    Src= »https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js »></script>
-
-
-
-  < !—Custom CSS 
-
-  <link rel= »stylesheet » href= »style.css »>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Resonance Within: From Simple Swings to Chaotic Dances</title>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async id="MathJax-script"
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="container">
+    <h1>The Resonance Within: From Simple Swings to Chaotic Dances</h1>
 
-  <div class= »container »>
-
-    <h1>The Resonance Within : From Simple Swings to Chaotic Dances</h1>
-
-
-
-    <h2>Introduction : How Inner Oscillations Become Unpredictable</h2>
-
-    <p>There’s something mesmerizing about a pendulum. It swings back and forth, silent and smooth… a system that can transform from serene rhythm to uncontrollable chaos.</p>
-
-     <p>But hidden beneath their simplicity lies a deeper truth : a pendulum can transform from a symbol of order into a source of chaos. A small increase in energy or a slight change in starting position can send it spiraling into wildly different behaviors.</p>
-
-    <p>This article explores that transition—from predictable oscillation to unpredictable chaos—by studying pendulums in both theory and simulation. Through Python models and visualizations, we trace the evolution from harmonic motion to nonlinear dynamics and chaos.</p>
-
-
+    <h2>Introduction: How Inner Oscillations Become Unpredictable</h2>
+    <p>There’s something mesmerizing about a pendulum. It swings back and forth, silent and smooth, like a heartbeat in mechanical form. For centuries, pendulums have measured time, modeled celestial motion, and illustrated the laws of classical mechanics.</p>
+    <p>But hidden beneath their simplicity lies a deeper truth: a pendulum can transform from a symbol of order into a source of chaos. A small increase in energy or a slight change in starting position can send it spiraling into wildly different behaviors.</p>
+    <p>This article explores that transition—from predictable oscillation to unpredictable chaos—by studying pendulums in both theory and simulation. Through Python models and dynamic visualizations, we’ll trace the evolution from <em>simple harmonic motion</em> to nonlinear dynamics, and finally to chaotic systems.</p>
+    <img src="pendulum-comparison.png" alt="Simple vs Double Pendulum behavior">
 
     <h2>The Simple Pendulum</h2>
-
     <h3>Deriving the Linear Model</h3>
-
     <p>Imagine a pendulum—a mass hanging from a string—free to swing under gravity. Its angular displacement from vertical is <em>θ</em>, its length is <em>L</em>, and mass is <em>m</em>.</p>
-
-    <p>Using Newton’s laws or Lagrangian mechanics, the full equation is :</p>
-
+    <p>Using Newton’s laws or Lagrangian mechanics, the full equation is:</p>
     <p>\[ \frac{d^2\theta}{dt^2} + \frac{g}{L} \sin\theta = 0 \]</p>
-
-    <p>For small angles (under ~15°), we can approximate <em>sin θ ≈ θ</em>, giving :</p>
-
+    <p>For small angles (under ~15°), we can approximate <em>sin θ ≈ θ</em>, giving:</p>
     <p>\[ \frac{d^2\theta}{dt^2} + \frac{g}{L} \theta = 0 \]</p>
-
-    <p>This has the solution :</p>
-
+    <p>This has the solution:</p>
     <p>\[ \theta(t) = \theta_0 \cos\left(\sqrt{\frac{g}{L}}\,t\right) \]</p>
-
-    <p>…and a period :</p>
-
+    <p>...and a period:</p>
     <p>\[ T = 2\pi \sqrt{\frac{L}{g}} \]</p>
-
-    <img src= »pendulum-simple.mp4» alt= »Simple pendulum motion »>
-
-    <img src= »simple-motion.png » alt= »Simple pendulum motion »>
+    <img src="simple-motion.mp4" alt="Simple pendulum motion">
+    <img src="pendulum-simple.png" alt="Simple pendulum motion">
 
     <h2>The Nonlinear Pendulum</h2>
-
-    <p>Beyond small angles :</p>
-
+    <p>Beyond small angles, we return to the full equation:</p>
     <p>\[ \frac{d^2\theta}{dt^2} + \frac{g}{L} \sin\theta = 0 \]</p>
 
-
-
     <h3>Energy and Phase Diagrams</h3>
-
-    <p>The total mechanical energy is :</p>
-
+    <p>The total mechanical energy is:</p>
     <p>\[ E = \tfrac{1}{2} m L^2 \omega^2 + mgL(1 - \cos\theta) \]</p>
-
-    <p>We visualize this using phase portraits (<em>θ vs ω</em>) and energy curves. At low energy, the motion is bounded and oscillatory ; at higher energies, the pendulum rotates fully.</p> 
-
-    <img src= »phase-portrait.png » alt= »Phase space diagram »>
-
-
+    <p>We visualize this using phase portraits (<em>θ vs ω</em>) and energy curves. At low energy, the motion is bounded and oscillatory; at higher energies, the pendulum rotates fully.</p>
+    <img src="phase-portrait.png" alt="Phase space diagram">
 
     <h2>Numerical Simulation with Python</h2>
+    <p>We solve the nonlinear equation with Runge-Kutta via SciPy:</p>
+    <pre><code>from scipy.integrate import odeint
 
-    <p>We solve the nonlinear model using Runge-Kutta in Python.</p>
+def deriv(y, t, g=9.81, L=1.0):
+    theta, omega = y
+    return [omega, -(g/L) * np.sin(theta)]</code></pre>
+    <p>Try it yourself:</p>
+    <p><a href="https://colab.research.google.com/your-simulator-link-here" target="_blank">👉 Open the Nonlinear Pendulum Simulator in Colab</a></p>
+    <img src="theta-vs-time.png" alt="Angle vs Time for nonlinear pendulum">
 
-    <pre><code>
-
-From scipy.integrate import odeint
-
-Def deriv(y, t, g=9.81, L=1.0) :
-
-    Theta, omega = y
-
-    Return [omega, -(g/L) * np.sin(theta)]
-
-    </code></pre>
-
-    <p><a href= « https://colab.research.google.com/drive/1khtZUfX_GAKhV9KPWzZer2xzJ0XVUO_C#scrollTo=oekmP-J4v4yo« >👉 Open the Nonlinear Pendulum Simulator in Colab</a></p>
-
-    <img src= »theta-vs-time.png » alt= »Angle vs Time plot »>
-
-
-
-    <h2>The Double Pendulum : Gateway to Chaos</h2>
-
-    <p>The double pendulum’s equations are complex and nonlinear. Even tiny changes in initial values produce wildly different outcomes.</p>
-
-    <img src= »double-pendulum.mp4 » alt= »Two double pendulums diverging from close angles »>
-
-
+    <h2>The Double Pendulum: Gateway to Chaos</h2>
+    <p>Attaching a second pendulum arm leads to a system governed by two coupled nonlinear equations. Even tiny changes in starting conditions result in radically different motion paths.</p>
+    <img src="double-pendulum-.mp4" alt="Diverging double pendulums">
 
     <h2>Visualizing Chaos</h2>
-
     <h3>Lyapunov Exponents</h3>
-
-    <p>Chaos means deterministic unpredictability. A positive <em>Lyapunov exponent</em> indicates that two close starting points will diverge exponentially.</p> 
-
-    <img src= »chaotic-attractor.png » alt= »Strange attractor or Lyapunov visualization »>
-
-
+    <p>Chaos means deterministic unpredictability. A positive <em>Lyapunov exponent</em> indicates that two close starting points will diverge exponentially.</p>
+    <img src="chaotic-attractor.png" alt="Strange attractor or Lyapunov visualization">
 
     <h2>Javascript Chaos Simulator in editor.p5js</h2>
+    <p>This interactive tool lets you adjust mass, length, and angles, and see real-time animations:</p>
+    <p><a href="https://editor.p5js.org/Ghomdim486/full/Ke1hJoD44" target="_blank">👉 Try the Chaos Simulator</a></p>
+    <img src="simulator-interface.png" alt="Simulator interface screenshot">
 
-    <p>This interactive tool lets you adjust mass, gravity, and initial angles :</p>
-
-    <p><a href= »https://editor.p5js.org/Ghomdim486/full/Ke1hJoD44 » target= »_blank »>👉 Try the Chaos Simulator</a></p>
-
-    <img src= »simulator-interface.png » alt= »Javascript simulator screenshot »>
-
-
+    <h2>The Importance of Chaos in Real Life</h2>
+    <p>Chaos isn’t theoretical—it helps us model and design in many fields:</p>
+    <ul>
+      <li><strong>Weather Forecasting:</strong> Small measurement errors can drastically change forecasts; models use probability.</li>
+      <li><strong>Electrical Circuits:</strong> Nonlinear components can oscillate or behave chaotically; engineers design to prevent instability.</li>
+      <li><strong>Space Missions:</strong> NASA exploits chaotic orbits (like Lagrange points) to save fuel.</li>
+      <li><strong>Biological Rhythms:</strong> The heart and brain show chaotic patterns used in medical diagnostics.</li>
+      <li><strong>Economics & Ecology:</strong> Small changes can ripple unpredictably; chaos helps model feedback loops.</li>
+    </ul>
+    <p>Embracing chaos lets us design systems that adapt and respond even in unpredictable environments.</p>
 
     <h2>Real-Life Chaos and Resonance</h2>
-
     <ul>
-
-      <li>Clocks and pendulum-based devices</li>
-
-      <li>Suspension bridges (resonance collapse)</li>
-
-      <li>Chaotic weather models</li>
-
+      <li>Clock mechanisms</li>
+      <li>Bridge resonance (e.g., Tacoma Narrows)</li>
+      <li>Atmospheric turbulence</li>
     </ul>
 
-<h2>The Importance of Chaos in Real Life</h2>
-
-<p>Chaos isn’t just a theoretical curiosity—it’s a powerful framework for understanding and designing real-world systems. Recognizing chaotic behavior helps engineers, scientists, and policymakers make better decisions in fields where predictability breaks down.</p>
-
-
-
-<ul>
-
-  <li><strong>Weather Forecasting :</strong> Edward Lorenz’s work showed how small changes in atmospheric data can lead to vastly different weather outcomes. Modern weather models embrace chaos to estimate probabilities rather than exact results.</li>
-
-
-
-  <li><strong>Electrical Circuits :</strong> Nonlinear components like diodes and inductors can cause oscillators to behave chaotically. Engineers use chaos theory to design robust electronics and prevent unintended instability.</li>
-
-
-
-  <li><strong>Space Missions :</strong> NASA has used chaotic trajectories to slingshot satellites using minimal fuel—taking advantage of gravity and unstable orbital paths predicted by chaos theory.</li>
-
-
-
-  <li><strong>Biological Rhythms :</strong> The human heart and brain show chaotic patterns. Understanding this has helped doctors detect abnormal rhythms, such as atrial fibrillation, and monitor neural activity in epilepsy.</li>
-
-
-
-  <li><strong>Economics and Ecology :</strong> In both markets and ecosystems, small events can have nonlinear ripple effects. Chaos theory helps model feedback loops in population dynamics, supply chains, and stock fluctuations.</li>
-
-</ul>
-
-
-
-<p>Understanding chaos allows us not to eliminate unpredictability—but to prepare for it, adapt to it, and even harness it. In many systems, embracing a bit of chaos is what keeps them alive and resilient.</p>
-
     <h2>FAQs</h2>
-
-    <div class= »faq »>
-
-      <div class= »faq-item »>
-
-        <div class= »faq-question »>Q : Is the double pendulum random ?</div>
-
-        <div class= »faq-answer »>A : No. It follows deterministic laws, but its sensitivity creates unpredictable outcomes.</div>
-
-      </div>
-
-      <div class= »faq-item »>
-
-        <div class= »faq-question »>Q : Can chaos be predicted ?</div>
-
-        <div class= »faq-answer »>A : Only for short durations. Beyond a certain time, it becomes unpredictable.</div>
-
-      </div>
-
-      <div class= »faq-item »>
-
-        <div class= »faq-question »>Q : Can I run the simulation without installing anything ?</div>
-
-        <div class= »faq-answer »>A : Yes ! Just open the Google Colab link. Everything runs in your browser—no setup required.</div>
-
-      </div>
-
-      <div class= »faq-item »>
-
-        <div class= »faq-question »>Q : What’s the difference between nonlinear and chaotic motion ?</div>
-
-        <div class= »faq-answer »>A : Nonlinear motion is complex but not necessarily chaotic. Chaos arises when that complexity becomes highly sensitive to initial conditions.</div>
-
-      </div>
-
-      <div class= »faq-item »>
-
-        <div class= »faq-question »>Q : Why do some simulations crash or show NaNs ?</div>
-
-        <div class= »faq-answer »>A : That often happens due to numerical instability—usually caused by large time steps or extreme initial conditions. Reducing the step size can help.</div>
-
-      </div>
-
-      <div class= »faq-item »>
-
-        <div class= »faq-question »>Q : Where is chaos used in real-world engineering ?</div>
-
-        <div class= »faq-answer »>A : Chaos theory helps engineers design stable aircraft, robust circuits, secure communication systems, and even predict turbulent airflow or power grid failures.</div>
-
-      </div>
-
+    <div class="faq">
+      <div class="faq-item"><div class="faq-question">Q: Is the double pendulum random?</div><div class="faq-answer">A: No. It’s deterministic, but highly sensitive to initial conditions.</div></div>
+      <div class="faq-item"><div class="faq-question">Q: Can chaos be predicted?</div><div class="faq-answer">A: Short-term yes; long-term no—unless reset frequently.</div></div>
+      <div class="faq-item"><div class="faq-question">Q: Can I run the simulation without installing anything?</div><div class="faq-answer">A: Yes! Use the Colab link—everything runs in your browser.</div></div>
+      <div class="faq-item"><div class="faq-question">Q: What's the difference between nonlinear and chaotic?</div><div class="faq-answer">A: Nonlinear systems can still be predictable; chaos requires sensitive dependence on initial conditions.</div></div>
+      <div class="faq-item"><div class="faq-question">Q: Why do some simulations crash or show errors?</div><div class="faq-answer">A: Large time steps or extreme values can cause numerical instability. Try reducing the timestep.</div></div>
+      <div class="faq-item"><div class="faq-question">Q: Where is chaos used in real engineering?</div><div class="faq-answer">A: In aerospace, power systems, secure communications, electronics, and medical diagnostics.</div></div>
     </div>
 
-
-
-    <h2>Conclusion : What the Pendulum Taught Me</h2>
-
-    <p>The humble pendulum—once a symbol of time’s regularity—became my window into unpredictability. As I simulated swings that spiraled into chaos, I saw echoes of life in motion : how tiny changes in energy, angle, or timing can lead to vastly different outcomes.</p>
-
-
-
-    <p>I began this project as a coder and physics student. I ended it as something more : a systems thinker. Someone who respects both the elegance of equations and the limits of prediction. The resonance I discovered was not just in the math—it was within me. In the way I respond to uncertainty. In the curiosity that keeps me iterating, even when simulations fail. In the understanding that engineering isn’t only about solving—it’s about listening to how systems behave, even when they disobey our expectations.</p>
-
-
-
-    <p>Developing the simulation wasn’t always smooth. I struggled with numerical instabilities, especially when solving the double pendulum’s equations of motion. The system would explode with errors unless I carefully tuned the timestep. There were nights when graphs wouldn’t plot, and I had to learn to debug with patience—checking every angle, every velocity. I realized that coding is not just typing ; it’s thinking in slow motion. This experience taught me resilience, creativity, and the value of small adjustments—exactly like in chaotic systems themselves.</p>
-
-
-
-    <p>These lessons connect deeply with my broader aspirations in mechanical engineering. My dream is to design systems that are not just efficient, but adaptive—engines that self-regulate, circuits that respond to noise, devices that can function in unstable or unpredictable conditions. At the university level, I’m eager to delve into control systems, vibrations, and thermodynamics, and to collaborate on hands-on engineering projects that marry code with hardware. Understanding chaos and resonance has shown me that the most elegant solutions often arise from messy realities.</p>
+    <h2>Conclusion: What the Pendulum Taught Me</h2>
+    <p>The humble pendulum—once a symbol of time’s regularity—became my window into unpredictability. As I simulated swings that spiraled into chaos, I saw echoes of life in motion: how tiny changes in energy, angle, or timing can lead to vastly different outcomes.</p>
+    <p>I began this project as a coder and physics student. I ended it as something more: a systems thinker. Someone who respects both the elegance of equations and the limits of prediction. The resonance I discovered was not just in the math—it was within me. In the way I respond to uncertainty. In the curiosity that keeps me iterating, even when simulations fail. In the understanding that engineering isn't only about solving—it’s about listening to how systems behave, even when they disobey our expectations.</p>
+    <p>Developing the simulation wasn’t always smooth. I struggled with numerical instabilities, especially when solving the double pendulum’s equations. The system would explode with errors unless I carefully tuned the timestep. There were nights when graphs wouldn’t plot, and I had to learn to debug with patience—checking every angle, every velocity. I realized that coding is not just typing; it’s thinking in slow motion. This experience taught me resilience, creativity, and the value of small adjustments—exactly like in chaotic systems themselves.</p>
+    <p>These lessons connect deeply with my broader aspirations in mechanical engineering. My dream is to design systems that are not just efficient, but adaptive—engines that self-regulate, circuits that respond to noise, devices that can function in unstable or unpredictable conditions. At the university level, I’m eager to delve into control systems, vibrations, and thermodynamics, and to collaborate on hands‑on engineering projects that marry code with hardware. Understanding chaos and resonance has shown me that the most elegant solutions often arise from messy realities.</p>
 
   </div>
 
-
-
-  < !—FAQ Toggle Script 
-
   <script>
-
-    Document.querySelectorAll(‘.faq-question’).forEach(q => {
-
-      q.addEventListener(‘click’, () => {
-
-        q.parentElement.classList.toggle(‘open’) ;
-
-      }) ;
-
-    }) ;
-
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('open');
+      });
+    });
   </script>
-<h10><i>Made and published by GHOMDIM FOHOM SORAYA. You can found details about my work in <a href="https://github.com/Ghomdim486/Thermodynamics" target="_blank"><u>My github respiratory.</u></a></i></h10>
+  <h10><i>Made and published by GHOMDIM FOHOM SORAYA. You can found details about my work in <a href="https://github.com/Ghomdim486/Thermodynamics" target="_blank"><u>My github respiratory.</u></a></i></h10>
 </body>
-
 </html>
-
-
-
