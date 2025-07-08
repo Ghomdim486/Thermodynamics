@@ -1,16 +1,16 @@
-/* Base layout and fonts */
+/* Base Styling */
 body {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  line-height: 1.7;
-  font-size: 16px;
-  background-color: #f9f9f9;
+  background-color: #f7f9fb;
   color: #222;
   margin: 0;
   padding: 0;
+  line-height: 1.7;
+  font-size: 16px;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 920px;
   margin: 40px auto;
   padding: 40px 30px;
   background-color: #fff;
@@ -20,37 +20,37 @@ body {
 
 /* Headings */
 h1 {
-  color: #003366;
-  font-size: 2.5em;
+  font-size: 2.6em;
+  color: #002b55;
   border-bottom: 2px solid #ccc;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
 }
 
 h2 {
-  color: #004080;
-  font-size: 1.8em;
-  margin-top: 40px;
+  font-size: 1.9em;
+  color: #003d7a;
+  margin-top: 45px;
   margin-bottom: 15px;
 }
 
 h3 {
-  color: #005599;
-  font-size: 1.4em;
+  font-size: 1.5em;
+  color: #005a99;
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* Paragraphs and text */
+/* Paragraphs */
 p {
   margin-bottom: 20px;
 }
 
 /* Lists */
 ul, ol {
-  margin: 15px 0 20px 25px;
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
-
 li {
   margin-bottom: 8px;
 }
@@ -61,7 +61,6 @@ a {
   text-decoration: none;
   font-weight: 500;
 }
-
 a:hover {
   text-decoration: underline;
 }
@@ -70,21 +69,17 @@ a:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: 25px 0;
   font-size: 0.95em;
 }
-
 th, td {
-  border: 1px solid #ccc;
   padding: 10px;
+  border: 1px solid #ccc;
   text-align: center;
 }
-
 th {
-  background-color: #eaeaea;
-  color: #003366;
+  background-color: #eef2f5;
 }
-
 td {
   background-color: #fff;
 }
@@ -93,44 +88,70 @@ td {
 img {
   max-width: 100%;
   height: auto;
-  margin: 20px 0;
   border-radius: 6px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  margin: 25px 0;
 }
 
-/* Code blocks and inline code */
+/* Code Blocks */
+pre {
+  background: #f5f5f5;
+  border-left: 4px solid #007acc;
+  padding: 12px 16px;
+  overflow-x: auto;
+  margin: 25px 0;
+}
 code {
   font-family: 'Courier New', monospace;
   background-color: #eef;
-  padding: 2px 6px;
+  padding: 3px 6px;
   border-radius: 4px;
-  font-size: 0.95em;
 }
 
 /* Blockquotes */
 blockquote {
   border-left: 4px solid #007acc;
   background-color: #f2f9ff;
-  padding: 10px 15px;
-  margin: 20px 0;
+  padding: 10px 20px;
+  margin: 25px 0;
   font-style: italic;
 }
 
-/* Responsive adjustments */
+/* FAQ Styles */
+.faq {
+  margin-top: 30px;
+}
+.faq-item {
+  margin-bottom: 15px;
+  border-left: 4px solid #004080;
+  background-color: #f8fcff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.faq-item:hover {
+  background-color: #eef7ff;
+}
+.faq-question {
+  font-weight: bold;
+  color: #003366;
+}
+.faq-answer {
+  display: none;
+  margin-top: 8px;
+  color: #333;
+}
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   .container {
-    padding: 25px 15px;
+    padding: 25px 20px;
   }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.5em;
-  }
-
-  h3 {
-    font-size: 1.2em;
-  }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.25em; }
 }
