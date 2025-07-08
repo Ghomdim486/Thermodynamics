@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.6.4.1 (Linux)"/>
+	<meta name="author" content="Jos Fohom"/>
+	<meta name="created" content="2025-07-08T22:42:00"/>
+	<meta name="changedby" content="Jos Fohom"/>
+	<meta name="changed" content="2025-07-08T22:42:00"/>
+	<meta name="AppVersion" content="16.0000"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.98in }
+		p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.1in; direction: ltr; background: transparent }
+	</style>
+</head>
+<body lang="fr-FR" link="#000080" vlink="#800000" dir="ltr"><p style="margin-bottom: 0.11in">
+&lt;&nbsp;!DOCTYPE html&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;html lang=&nbsp;»en&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;head&gt;</p>
+<p style="margin-bottom: 0.11in">  &lt;meta charset=&nbsp;»UTF-8&nbsp;»
+/&gt;</p>
+<p style="margin-bottom: 0.11in">  &lt;meta name=&nbsp;»viewport&nbsp;»
+content=&nbsp;»width=device-width, initial-scale=1.0&nbsp;»/&gt;</p>
+<p style="margin-bottom: 0.11in">  &lt;title&gt;The Resonance
+Within&nbsp;: From Simple Swings to Chaotic Dances&lt;/title&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">  &lt;&nbsp;!—MathJax for
+equations <font face="Wingdings, serif"></font></p>
+<p style="margin-bottom: 0.11in">  &lt;script
+src=&nbsp;»https://polyfill.io/v3/polyfill.min.js&nbsp;?features=es6&nbsp;»&gt;&lt;/script&gt;</p>
+<p style="margin-bottom: 0.11in">  &lt;script
+type=&nbsp;»text/javascript&nbsp;» async id=&nbsp;»MathJax-script&nbsp;»</p>
+<p style="margin-bottom: 0.11in">   
+Src=&nbsp;»https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&nbsp;»&gt;&lt;/script&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">  &lt;&nbsp;!—Custom CSS <font face="Wingdings, serif"></font></p>
+<p style="margin-bottom: 0.11in">  &lt;link rel=&nbsp;»stylesheet&nbsp;»
+href=&nbsp;»style.css&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;/head&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;body&gt;</p>
+<p style="margin-bottom: 0.11in">  &lt;div class=&nbsp;»container&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;h1&gt;The Resonance Within&nbsp;:
+From Simple Swings to Chaotic Dances&lt;/h1&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;Introduction&nbsp;:
+How Inner Oscillations Become Unpredictable&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;There’s something
+mesmerizing about a pendulum. It swings back and forth, silent and
+smooth… a system that can transform from serene rhythm to
+uncontrollable chaos.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">     &lt;p&gt;But hidden beneath
+their simplicity lies a deeper truth&nbsp;: a pendulum can transform
+from a symbol of order into a source of chaos. A small increase in
+energy or a slight change in starting position can send it spiraling
+into wildly different behaviors.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;This article explores
+that transition—from predictable oscillation to unpredictable
+chaos—by studying pendulums in both theory and simulation. Through
+Python models and visualizations, we trace the evolution from
+harmonic motion to nonlinear dynamics and chaos.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;The Simple
+Pendulum&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;h3&gt;Deriving the Linear
+Model&lt;/h3&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;Imagine a pendulum—a
+mass hanging from a string—free to swing under gravity. Its angular
+displacement from vertical is &lt;em&gt;θ&lt;/em&gt;, its length is
+&lt;em&gt;L&lt;/em&gt;, and mass is &lt;em&gt;m&lt;/em&gt;.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;Using Newton’s laws
+or Lagrangian mechanics, the full equation is&nbsp;:&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;\[
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin\theta = 0 \]&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;For small angles (under
+~15°), we can approximate &lt;em&gt;sin θ ≈ θ&lt;/em&gt;,
+giving&nbsp;:&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;\[
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \theta = 0 \]&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;This has the
+solution&nbsp;:&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;\[ \theta(t) = \theta_0
+\cos\left(\sqrt{\frac{g}{L}}\,t\right) \]&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;…and a period&nbsp;:&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;\[ T = 2\pi
+\sqrt{\frac{L}{g}} \]&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;img
+src=&nbsp;»pendulum-simple.mp4» alt=&nbsp;»Simple pendulum
+motion&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;img src= »simple-motion.png
+» alt= »Simple pendulum motion »&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;The Nonlinear
+Pendulum&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;Beyond small
+angles&nbsp;:&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;\[
+\frac{d^2\theta}{dt^2} + \frac{g}{L} \sin\theta = 0 \]&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h3&gt;Energy and Phase
+Diagrams&lt;/h3&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;The total mechanical
+energy is&nbsp;:&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;\[ E = \tfrac{1}{2} m
+L^2 \omega^2 + mgL(1 - \cos\theta) \]&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;We visualize this using
+phase portraits (&lt;em&gt;θ vs ω&lt;/em&gt;) and energy curves. At
+low energy, the motion is bounded and oscillatory&nbsp;; at higher
+energies, the pendulum rotates fully.&lt;/p&gt; 
+</p>
+<p style="margin-bottom: 0.11in">    &lt;img
+src=&nbsp;»phase-portrait.png&nbsp;» alt=&nbsp;»Phase space
+diagram&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;Numerical Simulation
+with Python&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;We solve the nonlinear
+model using Runge-Kutta in Python.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;pre&gt;&lt;code&gt;</p>
+<p style="margin-bottom: 0.11in">From scipy.integrate import odeint</p>
+<p style="margin-bottom: 0.11in">Def deriv(y, t, g=9.81, L=1.0)&nbsp;:</p>
+<p style="margin-bottom: 0.11in">    Theta, omega = y</p>
+<p style="margin-bottom: 0.11in">    Return [omega, -(g/L) *
+np.sin(theta)]</p>
+<p style="margin-bottom: 0.11in">    &lt;/code&gt;&lt;/pre&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;&lt;a
+href=&nbsp;«&nbsp;https://colab.research.google.com/drive/1khtZUfX_GAKhV9KPWzZer2xzJ0XVUO_C#scrollTo=oekmP-J4v4yo«&nbsp;&gt;<font face="Segoe UI Emoji, serif">👉</font>
+Open the Nonlinear Pendulum Simulator in Colab&lt;/a&gt;&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;img
+src=&nbsp;»theta-vs-time.png&nbsp;» alt=&nbsp;»Angle vs Time
+plot&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;The Double Pendulum&nbsp;:
+Gateway to Chaos&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;The double pendulum’s
+equations are complex and nonlinear. Even tiny changes in initial
+values produce wildly different outcomes.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;img
+src=&nbsp;»double-pendulum.mp4&nbsp;» alt=&nbsp;»Two double
+pendulums diverging from close angles&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;Visualizing Chaos&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;h3&gt;Lyapunov
+Exponents&lt;/h3&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;Chaos means
+deterministic unpredictability. A positive &lt;em&gt;Lyapunov
+exponent&lt;/em&gt; indicates that two close starting points will
+diverge exponentially.&lt;/p&gt; 
+</p>
+<p style="margin-bottom: 0.11in">    &lt;img
+src=&nbsp;»chaotic-attractor.png&nbsp;» alt=&nbsp;»Strange
+attractor or Lyapunov visualization&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;Javascript Chaos
+Simulator in editor.p5js&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;This interactive tool
+lets you adjust mass, gravity, and initial angles&nbsp;:&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;&lt;a
+href=&nbsp;»https://editor.p5js.org/Ghomdim486/full/Ke1hJoD44&nbsp;»
+target=&nbsp;»_blank&nbsp;»&gt;<font face="Segoe UI Emoji, serif">👉</font>
+Try the Chaos Simulator&lt;/a&gt;&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;img
+src=&nbsp;»simulator-interface.png&nbsp;» alt=&nbsp;»Javascript
+simulator screenshot&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;Real-Life Chaos and
+Resonance&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;ul&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;li&gt;Clocks and
+pendulum-based devices&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;li&gt;Suspension bridges
+(resonance collapse)&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;li&gt;Chaotic weather
+models&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;/ul&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;h2&gt;The Importance of Chaos in
+Real Life&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;p&gt;Chaos isn’t just a
+theoretical curiosity—it’s a powerful framework for understanding
+and designing real-world systems. Recognizing chaotic behavior helps
+engineers, scientists, and policymakers make better decisions in
+fields where predictability breaks down.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">&lt;ul&gt;</p>
+<p style="margin-bottom: 0.11in">  &lt;li&gt;&lt;strong&gt;Weather
+Forecasting&nbsp;:&lt;/strong&gt; Edward Lorenz’s work showed how
+small changes in atmospheric data can lead to vastly different
+weather outcomes. Modern weather models embrace chaos to estimate
+probabilities rather than exact results.&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">  &lt;li&gt;&lt;strong&gt;Electrical
+Circuits&nbsp;:&lt;/strong&gt; Nonlinear components like diodes and
+inductors can cause oscillators to behave chaotically. Engineers use
+chaos theory to design robust electronics and prevent unintended
+instability.&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">  &lt;li&gt;&lt;strong&gt;Space
+Missions&nbsp;:&lt;/strong&gt; NASA has used chaotic trajectories to
+slingshot satellites using minimal fuel—taking advantage of gravity
+and unstable orbital paths predicted by chaos theory.&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">  &lt;li&gt;&lt;strong&gt;Biological
+Rhythms&nbsp;:&lt;/strong&gt; The human heart and brain show chaotic
+patterns. Understanding this has helped doctors detect abnormal
+rhythms, such as atrial fibrillation, and monitor neural activity in
+epilepsy.&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">  &lt;li&gt;&lt;strong&gt;Economics
+and Ecology&nbsp;:&lt;/strong&gt; In both markets and ecosystems,
+small events can have nonlinear ripple effects. Chaos theory helps
+model feedback loops in population dynamics, supply chains, and stock
+fluctuations.&lt;/li&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;/ul&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">&lt;p&gt;Understanding chaos allows
+us not to eliminate unpredictability—but to prepare for it, adapt
+to it, and even harness it. In many systems, embracing a bit of chaos
+is what keeps them alive and resilient.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;FAQs&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;div class=&nbsp;»faq&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;div class=&nbsp;»faq-item&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-question&nbsp;»&gt;Q&nbsp;: Is the double pendulum
+random&nbsp;?&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-answer&nbsp;»&gt;A&nbsp;: No. It follows
+deterministic laws, but its sensitivity creates unpredictable
+outcomes.&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;div class=&nbsp;»faq-item&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-question&nbsp;»&gt;Q&nbsp;: Can chaos be
+predicted&nbsp;?&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-answer&nbsp;»&gt;A&nbsp;: Only for short
+durations. Beyond a certain time, it becomes unpredictable.&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;div class=&nbsp;»faq-item&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-question&nbsp;»&gt;Q&nbsp;: Can I run the
+simulation without installing anything&nbsp;?&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-answer&nbsp;»&gt;A&nbsp;: Yes&nbsp;! Just open the
+Google Colab link. Everything runs in your browser—no setup
+required.&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;div class=&nbsp;»faq-item&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-question&nbsp;»&gt;Q&nbsp;: What’s the
+difference between nonlinear and chaotic motion&nbsp;?&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-answer&nbsp;»&gt;A&nbsp;: Nonlinear motion is
+complex but not necessarily chaotic. Chaos arises when that
+complexity becomes highly sensitive to initial conditions.&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;div class=&nbsp;»faq-item&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-question&nbsp;»&gt;Q&nbsp;: Why do some
+simulations crash or show NaNs&nbsp;?&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-answer&nbsp;»&gt;A&nbsp;: That often happens due
+to numerical instability—usually caused by large time steps or
+extreme initial conditions. Reducing the step size can help.&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;div class=&nbsp;»faq-item&nbsp;»&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-question&nbsp;»&gt;Q&nbsp;: Where is chaos used in
+real-world engineering&nbsp;?&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">        &lt;div
+class=&nbsp;»faq-answer&nbsp;»&gt;A&nbsp;: Chaos theory helps
+engineers design stable aircraft, robust circuits, secure
+communication systems, and even predict turbulent airflow or power
+grid failures.&lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">      &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;h2&gt;Conclusion&nbsp;: What
+the Pendulum Taught Me&lt;/h2&gt;</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;The humble
+pendulum—once a symbol of time’s regularity—became my window
+into unpredictability. As I simulated swings that spiraled into
+chaos, I saw echoes of life in motion&nbsp;: how tiny changes in
+energy, angle, or timing can lead to vastly different outcomes.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;I began this project as
+a coder and physics student. I ended it as something more&nbsp;: a
+systems thinker. Someone who respects both the elegance of equations
+and the limits of prediction. The resonance I discovered was not just
+in the math—it was within me. In the way I respond to uncertainty.
+In the curiosity that keeps me iterating, even when simulations fail.
+In the understanding that engineering isn’t only about solving—it’s
+about listening to how systems behave, even when they disobey our
+expectations.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;Developing the
+simulation wasn’t always smooth. I struggled with numerical
+instabilities, especially when solving the double pendulum’s
+equations of motion. The system would explode with errors unless I
+carefully tuned the timestep. There were nights when graphs wouldn’t
+plot, and I had to learn to debug with patience—checking every
+angle, every velocity. I realized that coding is not just typing&nbsp;;
+it’s thinking in slow motion. This experience taught me resilience,
+creativity, and the value of small adjustments—exactly like in
+chaotic systems themselves.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">    &lt;p&gt;These lessons connect
+deeply with my broader aspirations in mechanical engineering. My
+dream is to design systems that are not just efficient, but
+adaptive—engines that self-regulate, circuits that respond to
+noise, devices that can function in unstable or unpredictable
+conditions. At the university level, I’m eager to delve into
+control systems, vibrations, and thermodynamics, and to collaborate
+on hands-on engineering projects that marry code with hardware.
+Understanding chaos and resonance has shown me that the most elegant
+solutions often arise from messy realities.&lt;/p&gt;</p>
+<p style="margin-bottom: 0.11in">  &lt;/div&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0.11in">  &lt;&nbsp;!—FAQ Toggle Script <font face="Wingdings, serif"></font></p>
+<p style="margin-bottom: 0.11in">  &lt;script&gt;</p>
+<p style="margin-bottom: 0.11in">   
+Document.querySelectorAll(‘.faq-question’).forEach(q =&gt; {</p>
+<p style="margin-bottom: 0.11in">      q.addEventListener(‘click’,
+() =&gt; {</p>
+<p style="margin-bottom: 0.11in">       
+q.parentElement.classList.toggle(‘open’)&nbsp;;</p>
+<p style="margin-bottom: 0.11in">      })&nbsp;;</p>
+<p style="margin-bottom: 0.11in">    })&nbsp;;</p>
+<p style="margin-bottom: 0.11in">  &lt;/script&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;/body&gt;</p>
+<p style="margin-bottom: 0.11in">&lt;/html&gt;</p>
+<p style="margin-bottom: 0.11in"><br/>
+<br/>
+
+</p>
+</body>
+</html>
