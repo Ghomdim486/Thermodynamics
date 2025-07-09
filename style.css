@@ -160,8 +160,6 @@ blockquote {
 /* Responsive video */
 video {
   position: absolute;
-  top: 50%;
-  left: 50%;
   Max-width: 100%;
   height: auto;
   transform: translate(-50%, -50%);
