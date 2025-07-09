@@ -155,3 +155,30 @@ blockquote {
   h2 { font-size: 1.5em; }
   h3 { font-size: 1.25em; }
 }
+/* Make sure the page fills the screen */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Video container (optional if needed for controls or overlays) */
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Responsive video */
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Use 'contain' instead of 'cover' to fit entire video */
+}
